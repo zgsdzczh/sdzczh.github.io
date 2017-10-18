@@ -310,33 +310,15 @@
 
       
         
-          
-            <blockquote class="blockquote-center"><p>在上网查资料时看到了好几个很不错的个人博客，感觉很棒，自己也想搭建一个。<br>经过一系列的搜索发现是基于Hexo作为博客框架，Github提供的300M免费空间作为服务器，Next作为博客的主题。<br>本文就来记录下搭建的过程。</p>
+          <blockquote class="blockquote-center"><p>在上网查资料时看到了好几个很不错的个人博客，感觉很棒，自己也想搭建一个。<br>经过一系列的搜索发现是基于Hexo作为博客框架，Github提供的300M免费空间作为服务器，Next作为博客的主题。<br>本文就来记录下搭建的过程。</p>
 </blockquote>
-<div class="note default"><h1>安装Node.js</h1></div>
-到Node.js官网下载相应平台的最新版本，一路安装即可。
-<div class="note default"><h1>安装Git</h1></div>
-<p>记得要配置环境变量<br><div class="note default"><h1>GitHub</h1></div>
-<ul>
-  <li>首先注册一个『GitHub』帐号，已有的默认默认请忽略</li>
-  <li>建立与你用户名对应的仓库，仓库名必须为『your_user_name.github.com』</li>
-  <li>添加SSH公钥到『Account settings -> SSH Keys -> Add SSH Key』</li>
-</ul>
-前两步忽略，只说第三步，添加SSH-Key。
-首先设置你的用户名密码：
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"zgsdzczh@163.com"</span> </div><div class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"MyPassword"</span></div></pre></td></tr></table></figure>
-生成密钥：
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> "<span class="selector-tag">zgsdzczh</span>@<span class="keyword">163</span>.<span class="keyword">com</span>"</div></pre></td></tr></table></figure>
-然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到<b>.ssh\id_rsa.pub</b>文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -> SSH and GPG keys -> New SSH key,将刚复制的内容粘贴到key那里，title随便填，保存。
-测试是否成功:
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com <span class="comment"># 注意邮箱地址不用改</span></div></pre></td></tr></table></figure>
-如果提示Are you sure you want to continue connecting (yes/no)?，输入<b>yes</b>，<br>然后会看到：
-<b>Hi sdzczh! You've successfully authenticated, but GitHub does not provide shell access.</b><br>
-看到这个信息说明SSH已配置成功！<br>
-&nbsp;
-<div class="note default"><h1>安装Hexo</h1></div><br>Node和Git都安装好后，可执行如下命令安装hexo：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g hexo</div></pre></td></tr></table></figure><br>初始化：<br>在电脑的某个地方新建一个名为hexo的文件夹（名字可以随便取），比如我的是E:\hexo，由于这个文件夹将来就作为你存放代码的地方，所以最好不要随便放。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /E/hexo/</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo init</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo g <span class="comment"># 生成</span></span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo s <span class="comment"># 启动服务</span></span></div></pre></td></tr></table></figure><br>当窗口显示<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div><div class="line">INFO  <span class="keyword">Start</span> processing</div><div class="line">INFO  Hexo <span class="keyword">is</span> running <span class="keyword">at</span> <span class="keyword">http</span>://localhost:<span class="number">4000</span>/. Press Ctrl+C <span class="keyword">to</span> stop.</div></pre></td></tr></table></figure><br>则代表服务开启成功，打开浏览器访问localhost:4000，Ctrl+C是停止服务。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/18/搭建Hexo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -572,11 +554,15 @@
 
       
         
-          
-            <p>基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#userContractTable"</span>).bootstrapTable(<span class="string">'load'</span>, json);</div></pre></td></tr></table></figure></p>
-<p><br>命令刷新表格，将新查询的数据显示出来<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;  </div><div class="line">             <span class="built_in">type</span>: <span class="string">"post"</span>,  </div><div class="line">             url: <span class="string">"getUserContractList"</span>,  </div><div class="line">             data: &#123;username : username,  </div><div class="line">            education:education,  </div><div class="line">            cid:cid,  </div><div class="line">            createTime : createTime&#125;,  </div><div class="line">             dataType:<span class="string">"json"</span>,  </div><div class="line">             success : <span class="keyword">function</span>(json) &#123;  </div><div class="line">                        $(<span class="string">"#userContractTable"</span>).bootstrapTable(<span class="string">'load'</span>, json);  </div><div class="line">                    &#125;  </div><div class="line">                &#125;);  </div><div class="line">             &#125;</div></pre></td></tr></table></figure></p>
-
-          
+          <p>基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#userContractTable"</span>).bootstrapTable(<span class="string">'load'</span>, json);</div></pre></td></tr></table></figure></p>
+<p><br>命令刷新表格，将新查询的数据显示出来<br><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/18/my-first-blog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -693,18 +679,14 @@
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/18/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

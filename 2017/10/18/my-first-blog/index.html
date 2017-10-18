@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用1$(&quot;#userContractTable&quot;).bootstrapTable(&apos;load&apos;, json); 命令刷新表格，将新查询的数据显示出来12345678910111213$.ajax(&amp;#123;               type: &quot;post">
+<meta name="description" content="基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用1$(&quot;#userContractTable&quot;).bootstrapTable(&apos;load&apos;, json); 命令刷新表格，将新查询的数据显示出来">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bootstraptable的加载刷新数据">
 <meta property="og:url" content="http://sdzczh.github.io/2017/10/18/my-first-blog/index.html">
 <meta property="og:site_name" content="今天吃鸡了吗">
-<meta property="og:description" content="基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用1$(&quot;#userContractTable&quot;).bootstrapTable(&apos;load&apos;, json); 命令刷新表格，将新查询的数据显示出来12345678910111213$.ajax(&amp;#123;               type: &quot;post">
+<meta property="og:description" content="基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用1$(&quot;#userContractTable&quot;).bootstrapTable(&apos;load&apos;, json); 命令刷新表格，将新查询的数据显示出来">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-10-18T08:33:05.395Z">
+<meta property="og:updated_time" content="2017-10-18T10:57:20.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bootstraptable的加载刷新数据">
-<meta name="twitter:description" content="基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用1$(&quot;#userContractTable&quot;).bootstrapTable(&apos;load&apos;, json); 命令刷新表格，将新查询的数据显示出来12345678910111213$.ajax(&amp;#123;               type: &quot;post">
+<meta name="twitter:description" content="基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用1$(&quot;#userContractTable&quot;).bootstrapTable(&apos;load&apos;, json); 命令刷新表格，将新查询的数据显示出来">
 
 
 
@@ -311,7 +311,7 @@
 
       
         <p>基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#userContractTable"</span>).bootstrapTable(<span class="string">'load'</span>, json);</div></pre></td></tr></table></figure></p>
-<p><br>命令刷新表格，将新查询的数据显示出来<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;  </div><div class="line">             <span class="built_in">type</span>: <span class="string">"post"</span>,  </div><div class="line">             url: <span class="string">"getUserContractList"</span>,  </div><div class="line">             data: &#123;username : username,  </div><div class="line">            education:education,  </div><div class="line">            cid:cid,  </div><div class="line">            createTime : createTime&#125;,  </div><div class="line">             dataType:<span class="string">"json"</span>,  </div><div class="line">             success : <span class="keyword">function</span>(json) &#123;  </div><div class="line">                        $(<span class="string">"#userContractTable"</span>).bootstrapTable(<span class="string">'load'</span>, json);  </div><div class="line">                    &#125;  </div><div class="line">                &#125;);  </div><div class="line">             &#125;</div></pre></td></tr></table></figure></p>
+<p><br>命令刷新表格，将新查询的数据显示出来<br><br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;  </div><div class="line">             <span class="built_in">type</span>: <span class="string">"post"</span>,  </div><div class="line">             url: <span class="string">"getUserContractList"</span>,  </div><div class="line">             data: &#123;username : username,  </div><div class="line">            education:education,  </div><div class="line">            cid:cid,  </div><div class="line">            createTime : createTime&#125;,  </div><div class="line">             dataType:<span class="string">"json"</span>,  </div><div class="line">             success : <span class="keyword">function</span>(json) &#123;  </div><div class="line">                        $(<span class="string">"#userContractTable"</span>).bootstrapTable(<span class="string">'load'</span>, json);  </div><div class="line">                    &#125;  </div><div class="line">                &#125;);  </div><div class="line">             &#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
