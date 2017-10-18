@@ -240,6 +240,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sdzczh.github.io/2017/10/18/搭建Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sdzczh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="今天吃鸡了吗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/18/搭建Hexo/" itemprop="url"><center><h1>手把手教你搭建Hexo<h1></center></a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T18:09:39+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote class="blockquote-center"><p>在上网查资料时看到了好几个很不错的个人博客，感觉很棒，自己也想搭建一个。<br>经过一系列的搜索发现是基于Hexo作为博客框架，Github提供的300M免费空间作为服务器，Next作为博客的主题。<br>本文就来记录下搭建的过程。</p>
+</blockquote>
+<div class="note default"><h1>安装Node.js</h1></div>
+到Node.js官网下载相应平台的最新版本，一路安装即可。
+<div class="note default"><h1>安装Git</h1></div>
+<p>记得要配置环境变量<br><div class="note default"><h1>GitHub</h1></div>
+<ul>
+  <li>首先注册一个『GitHub』帐号，已有的默认默认请忽略</li>
+  <li>建立与你用户名对应的仓库，仓库名必须为『your_user_name.github.com』</li>
+  <li>添加SSH公钥到『Account settings -> SSH Keys -> Add SSH Key』</li>
+</ul>
+前两步忽略，只说第三步，添加SSH-Key。
+首先设置你的用户名密码：
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"zgsdzczh@163.com"</span> </div><div class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"MyPassword"</span></div></pre></td></tr></table></figure>
+生成密钥：
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ssh-keygen</span> <span class="selector-tag">-t</span> <span class="selector-tag">rsa</span> <span class="selector-tag">-C</span> "<span class="selector-tag">zgsdzczh</span>@<span class="keyword">163</span>.<span class="keyword">com</span>"</div></pre></td></tr></table></figure>
+然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到<b>.ssh\id_rsa.pub</b>文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -> SSH and GPG keys -> New SSH key,将刚复制的内容粘贴到key那里，title随便填，保存。
+测试是否成功:
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com <span class="comment"># 注意邮箱地址不用改</span></div></pre></td></tr></table></figure>
+如果提示Are you sure you want to continue connecting (yes/no)?，输入<b>yes</b>，<br>然后会看到：
+<b>Hi sdzczh! You've successfully authenticated, but GitHub does not provide shell access.</b><br>
+看到这个信息说明SSH已配置成功！<br>
+&nbsp;
+<div class="note default"><h1>安装Hexo</h1></div><br>Node和Git都安装好后，可执行如下命令安装hexo：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g hexo</div></pre></td></tr></table></figure><br>初始化：<br>在电脑的某个地方新建一个名为hexo的文件夹（名字可以随便取），比如我的是E:\hexo，由于这个文件夹将来就作为你存放代码的地方，所以最好不要随便放。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /E/hexo/</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo init</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo g <span class="comment"># 生成</span></span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo s <span class="comment"># 启动服务</span></span></div></pre></td></tr></table></figure><br>当窗口显示<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div><div class="line">INFO  <span class="keyword">Start</span> processing</div><div class="line">INFO  Hexo <span class="keyword">is</span> running <span class="keyword">at</span> <span class="keyword">http</span>://localhost:<span class="number">4000</span>/. Press Ctrl+C <span class="keyword">to</span> stop.</div></pre></td></tr></table></figure><br>则代表服务开启成功，打开浏览器访问localhost:4000，Ctrl+C是停止服务。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sdzczh.github.io/2017/10/18/JS延迟跳转/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -645,7 +788,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
