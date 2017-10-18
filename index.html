@@ -46,7 +46,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="" class="profilepic">
-			<img src="/img/avatar.png" class="js-avatar">
+			<img src="/img/1.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="">sdzczh</a></h1>
@@ -86,7 +86,7 @@
 		        
 					<a class="weibo" target="_blank" href="https://weibo.com/u/3782804174" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="qq" target="_blank" href="/615745258" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=615745258&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
 		        
 					<a class="mail" target="_blank" href="/zgsdzczh@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -106,7 +106,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/avatar.png" class="js-avatar">
+				<img src="/img/1.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">sdzczh</h1>
@@ -129,7 +129,7 @@
 			        
 						<a class="weibo" target="_blank" href="https://weibo.com/u/3782804174" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="qq" target="_blank" href="/615745258" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=615745258&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
 			        
 						<a class="mail" target="_blank" href="/zgsdzczh@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -159,6 +159,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JS延迟跳转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/18/JS延迟跳转/">JS延迟跳转</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/18/JS延迟跳转/" class="archive-article-date">
+  	<time datetime="2017-10-18T08:34:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">$(<span class="string">"#Form"</span>).submit();</div><div class="line">&#125;,1000)</div><div class="line">location.reload(); 刷新页面</div><div class="line">window.location.href=<span class="string">'sys/loginForward'</span>; 跳转页面</div><div class="line"><span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">“这里写要延迟执行的语句”</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/18/JS延迟跳转/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -166,7 +228,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/18/my-first-blog/">my-first-blog</a>
+      <a class="article-title" href="/2017/10/18/my-first-blog/">bootstraptable的加载刷新数据</a>
     </h1>
   
 
@@ -179,10 +241,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Window 下安装<br>下载地址：<a href="https://github.com/MSOpenTech/redis/releases。" target="_blank" rel="external">https://github.com/MSOpenTech/redis/releases。</a><br>解压后跳转到本目录下 运行 redis-server.exe redis.windows.conf<br>Linux 下安装<br>下载地址：<a href="http://redis.io/download，下载最新文档版本。" target="_blank" rel="external">http://redis.io/download，下载最新文档版本。</a><br>
-        
-          <a class="article-more-a" href="/2017/10/18/my-first-blog/#more">more >></a>
-        
+        <p>基于表格的多条件查询，向后台发送username，education，cid，createtime等数据，可为空。经过查询后返回JSON，使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#userContractTable"</span>).bootstrapTable(<span class="string">'load'</span>, json);</div></pre></td></tr></table></figure></p>
+<p><br>命令刷新表格，将新查询的数据显示出来<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;  </div><div class="line">             <span class="built_in">type</span>: <span class="string">"post"</span>,  </div><div class="line">             url: <span class="string">"getUserContractList"</span>,  </div><div class="line">             data: &#123;username : username,  </div><div class="line">            education:education,  </div><div class="line">            cid:cid,  </div><div class="line">            createTime : createTime&#125;,  </div><div class="line">             dataType:<span class="string">"json"</span>,  </div><div class="line">             success : <span class="keyword">function</span>(json) &#123;  </div><div class="line">                        $(<span class="string">"#userContractTable"</span>).bootstrapTable(<span class="string">'load'</span>, json);  </div><div class="line">                    &#125;  </div><div class="line">                &#125;);  </div><div class="line">             &#125;</div></pre></td></tr></table></figure></p>
+
       
 
       
@@ -436,27 +497,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://alih.cc" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="http://alih.cc" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>代做Java毕业设计</a>
             </li>
           
         </ul>
@@ -467,7 +508,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个嗜好太多&lt;br&gt;能力太小的普通人</div>
   	  	
     	</section>
     
