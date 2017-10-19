@@ -310,36 +310,15 @@
 
       
         
-          
-            <h1 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h1><p>首先java -version查看是否有jdk</p>
-<p>没有的话去<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">这里</a>下一个，这里使用的是.tar.gz的安装包 ，使用FileZilla将其放入选中的文件夹下。<br><strong>tar-xvf jdk-8u121-linux-x64.tar.gz 解压</strong><br>接下来要配置环境变量：</p>
-<ul>
-<li>vi /etc/profile</li>
-<li>export JAVA_HOME=/usr/java/jdk/jdk1.8.0_121</li>
-<li>export JRE_HOME=/usr/java/jdk/jdk1.8.0_121/jre</li>
-<li>export CLASSPATH=.:$JAVA_HOME/lib$:JRE_HOME/lib:$CLASSPATH</li>
-<li>export PATH=$JAVA_HOME/bin:$JRE_HOME/bin/$JAVA_HOME:$PATH</li>
-<li>保存 source/etc/profile</li>
-<li><p>执行 java -version</p>
-<h1 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h1><p><a href="http://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">点我下载</a><br><strong>上传，解压如上步骤</strong></p>
-</li>
-<li><p>cd bin/</p>
-</li>
-<li>vi setclasspath.sh</li>
-<li>添加</li>
-<li>export JAVA_HOME=/usr/java/jdk/jdk1.8.0_121</li>
-<li>export JRE_HOME=/usr/java/jdk/jdk1.8.0_121/jre</li>
-<li>cd /bin  ./startup.sh</li>
-<li>localhost：8080 看到小猫</li>
-</ul>
-<h1 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h1><p><strong>下载</strong> wget <a href="http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm" target="_blank" rel="external">http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</a><br><strong>安装</strong> sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm<br>sudo yum install mysql-server<br><strong>重启service</strong><br> mysqld restart<br><strong>重置密码</strong><br>mysql<br> -u root</p>
-<p>mysql &gt; use mysql;</p>
-<p>mysql &gt; update user set password=password(‘123456‘) where user=‘root‘;</p>
-<p>mysql &gt; exit;</p>
-<p><strong>执行sql文件</strong><br> mysql&gt; source /home/admin.sql</p>
-<p><img src="/2017/10/19/Linux-CentOS7-配置javaWeb环境/1.png" alt="logo"></p>
-
-          
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>CentOS（Community Enterprise Operating System，中文意思是：社区企业操作系统）是Linux发行版之一，它是来自于Red Hat Enterprise Linux依照开放源代码规定释出的源代码所编译而成。由于出自同样的源代码，因此有些要求高度稳定性的服务器以CentOS替代商业版的Red HatEnterprise Linux使用。本文将详细介绍CentOS云服务器上面的javaweb运行环境搭建<br></p></blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/19/Linux-CentOS7-配置javaWeb环境/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
