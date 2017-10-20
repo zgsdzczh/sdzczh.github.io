@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/H.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/H16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ssm," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="开发环境：JDK1.6 TOMCAT 7.0 MYSQL5.5 MyEclipse10">
+<meta name="keywords" content="ssm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM简单整合">
+<meta property="og:url" content="http://sdzczh.github.io/2017/10/20/SSM简单整合/index.html">
+<meta property="og:site_name" content="今天吃鸡了吗">
+<meta property="og:description" content="开发环境：JDK1.6 TOMCAT 7.0 MYSQL5.5 MyEclipse10">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://sdzczh.github.io/2017/10/20/SSM简单整合/1.png">
+<meta property="og:image" content="http://sdzczh.github.io/2017/10/20/SSM简单整合/2.png">
+<meta property="og:image" content="http://sdzczh.github.io/2017/10/20/SSM简单整合/3.png">
+<meta property="og:updated_time" content="2017-10-20T06:39:50.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSM简单整合">
+<meta name="twitter:description" content="开发环境：JDK1.6 TOMCAT 7.0 MYSQL5.5 MyEclipse10">
+<meta name="twitter:image" content="http://sdzczh.github.io/2017/10/20/SSM简单整合/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://sdzczh.github.io/2017/10/20/SSM简单整合/"/>
+
+
+
+
+
+  <title>SSM简单整合 | 今天吃鸡了吗</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+		<a href="https://github.com/sdzczh" target="_black"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+	</div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">今天吃鸡了吗</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个嗜好太多  能力太小的普通人</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sdzczh.github.io/2017/10/20/SSM简单整合/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BUG开发者">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="今天吃鸡了吗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SSM简单整合</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T14:06:02+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssm/" itemprop="url" rel="index">
+                    <span itemprop="name">ssm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<pre><code>开发环境：JDK1.6 TOMCAT 7.0 MYSQL5.5 MyEclipse10
+</code></pre><a id="more"></a>
+<p><strong>整体项目目录如下：</strong><br><img src="/2017/10/20/SSM简单整合/1.png" alt="项目目录"><br><strong>数据库如下：</strong><br><img src="/2017/10/20/SSM简单整合/2.png" alt="数据库"></p>
+<h1 id="User类："><a href="#User类：" class="headerlink" title="User类："></a>User类：</h1></blockquote>
+<pre><code>package com.zh.pojo;
+public class User {
+    private Integer id;
+    private String username;
+    private String password;
+    private Integer age;
+
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+}
+</code></pre><h1 id="UserServiceImpl类："><a href="#UserServiceImpl类：" class="headerlink" title="UserServiceImpl类："></a>UserServiceImpl类：</h1><pre><code>package com.zh.service.impl;  
+import javax.annotation.Resource;  
+
+import org.springframework.stereotype.Service;  
+
+import com.zh.dao.IUserDao;  
+import com.zh.pojo.User;  
+import com.zh.service.IUserService;  
+
+@Service(&quot;userService&quot;)  
+public class UserServiceImpl implements IUserService {  
+
+@Resource  
+private IUserDao userDao;  
+@Override  
+public User getUserById(int id) {  
+ return userDao.findUserById(id);  
+}  
+}  
+</code></pre><h1 id="UserMapper-xml："><a href="#UserMapper-xml：" class="headerlink" title="UserMapper.xml："></a>UserMapper.xml：</h1><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;
+&lt;mapper namespace=&quot;com.zh.dao.IUserDao&quot;&gt;
+&lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;com.zh.pojo.User&quot;&gt;
+&lt;id column=&quot;id&quot; property=&quot;id&quot; jdbcType=&quot;INTEGER&quot;/&gt;
+&lt;result column=&quot;username&quot; property=&quot;username&quot; jdbcType=&quot;VARCHAR&quot;/&gt;
+&lt;result column=&quot;password&quot; property=&quot;password&quot; jdbcType=&quot;VARCHAR&quot;/&gt;
+&lt;result column=&quot;age&quot; property=&quot;age&quot; jdbcType=&quot;INTEGER&quot;/&gt;
+&lt;/resultMap&gt;
+&lt;sql id=&quot;Base_Column_List&quot;&gt;
+id, username, password, age
+&lt;/sql&gt;
+&lt;select id=&quot;findUserById&quot; resultMap=&quot;BaseResultMap&quot; parameterType=&quot;java.lang.Integer&quot;&gt;
+select
+&lt;include refid=&quot;Base_Column_List&quot;/&gt;
+from user_t
+where id = #{id}
+&lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre><h1 id="UserController："><a href="#UserController：" class="headerlink" title="UserController："></a>UserController：</h1><pre><code>package com.zh.controller;  
+import javax.annotation.Resource;  
+import javax.servlet.http.HttpServletRequest;  
+
+import org.springframework.stereotype.Controller;  
+import org.springframework.ui.Model;  
+import org.springframework.web.bind.annotation.RequestMapping;  
+
+import com.zh.pojo.User;  
+import com.zh.service.IUserService;  
+
+@Controller
+@RequestMapping(&quot;/user&quot;)
+public class UserController {  
+@Resource
+private IUserService userService;
+
+@RequestMapping(&quot;/index&quot;)
+public String toIndex(HttpServletRequest request,Model model){
+int userId = Integer.parseInt(request.getParameter(&quot;id&quot;));
+User user = this.userService.getUserById(userId);
+model.addAttribute(&quot;user&quot;, user);
+return &quot;index&quot;;
+}
+}  
+</code></pre><h1 id="jdbcConfig-properties："><a href="#jdbcConfig-properties：" class="headerlink" title="jdbcConfig.properties："></a>jdbcConfig.properties：</h1><pre><code>classDriverName=com.mysql.jdbc.Driver  
+url=jdbc:mysql://localhost:3306/admin?useUnicode=true&amp;characterEncoding=utf-8  
+username=root  
+password=root  
+minPoolSize=1  
+maxPoolSize=300  
+maxIdleTime=60  
+acquireIncrement=5  
+initialPoolSize=1  
+idleConnectionTestPeriod=60 
+</code></pre><h1 id="applicationContext-xml："><a href="#applicationContext-xml：" class="headerlink" title="applicationContext.xml："></a>applicationContext.xml：</h1><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;  
+   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;  
+   xmlns:context=&quot;http://www.springframework.org/schema/context&quot;  
+   xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;  
+   xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+http://www.springframework.org/schema/context  
+http://www.springframework.org/schema/context/spring-context-3.1.xsd  
+http://www.springframework.org/schema/mvc  
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd&quot;&gt;  
+&lt;context:component-scan base-package=&quot;com.zh&quot; /&gt;  
+&lt;!--导入配置文件--&gt;  
+&lt;bean id=&quot;mysqlSource&quot; class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;  
+&lt;property name=&quot;location&quot; value=&quot;classpath:jdbcConfig.properties&quot;&gt;&lt;/property&gt;  
+&lt;/bean&gt;  
+&lt;bean id=&quot;dataSource&quot; class=&quot;org.apache.commons.dbcp.BasicDataSource&quot; destroy-method=&quot;close&quot;&gt;  
+&lt;property name=&quot;driverClassName&quot; value=&quot;${classDriverName}&quot; /&gt;  
+&lt;property name=&quot;url&quot; value=&quot;${url}&quot; /&gt;  
+&lt;property name=&quot;username&quot; value=&quot;${username}&quot; /&gt;  
+&lt;property name=&quot;password&quot; value=&quot;${password}&quot; /&gt;  
+&lt;/bean&gt;  
+
+&lt;!--spring mybatis的整合--&gt;  
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;  
+&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;  
+&lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:*.xml&quot; /&gt;  
+&lt;/bean&gt;  
+
+&lt;!-- DAO接口所在包名，Spring会自动查找其下的类 --&gt;  
+&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;  
+&lt;property name=&quot;basePackage&quot; value=&quot;com.zh.dao&quot; /&gt;  
+
+&lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot; /&gt;  
+&lt;/bean&gt;  
+
+&lt;!-- (事务管理)transaction manager, use JtaTransactionManager for global tx --&gt;  
+&lt;bean id=&quot;transactionManager&quot;  
+  class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;  
+&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;  
+&lt;/bean&gt;  
+&lt;/beans&gt; 
+</code></pre><h1 id="springmvcConfig-xml"><a href="#springmvcConfig-xml" class="headerlink" title="springmvcConfig.xml"></a>springmvcConfig.xml</h1><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;  
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot;  
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;  
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans  
+ http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+ http://www.springframework.org/schema/context  
+ http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+  http://www.springframework.org/schema/aop  
+http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+  http://www.springframework.org/schema/mvc  
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd  
+ &quot;&gt;  
+
+&lt;context:annotation-config /&gt;  
+&lt;context:component-scan base-package=&quot;com.zh.controller&quot;&gt;&lt;/context:component-scan&gt;  
+
+
+&lt;bean  
+class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;  
+&lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;  
+&lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;  
+&lt;/bean&gt;  
+&lt;mvc:annotation-driven&gt;  
+&lt;mvc:message-converters register-defaults=&quot;true&quot;&gt;  
+&lt;bean  
+class=&quot;com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter&quot;&gt;  
+&lt;/bean&gt;  
+&lt;/mvc:message-converters&gt;  
+&lt;/mvc:annotation-driven&gt;  
+&lt;mvc:default-servlet-handler /&gt;  
+&lt;/beans&gt;  
+</code></pre><h1 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a>web.xml</h1><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;  
+xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;  
+xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;  
+id=&quot;WebApp_ID&quot; version=&quot;3.1&quot;&gt;  
+&lt;display-name&gt;OASystem&lt;/display-name&gt;  
+&lt;welcome-file-list&gt;  
+&lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;  
+&lt;/welcome-file-list&gt;  
+&lt;filter&gt;  
+&lt;filter-name&gt;CharacterEncodingFilter&lt;/filter-name&gt;  
+&lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;  
+&lt;init-param&gt;  
+&lt;param-name&gt;encoding&lt;/param-name&gt;  
+&lt;param-value&gt;utf-8&lt;/param-value&gt;  
+&lt;/init-param&gt;  
+&lt;/filter&gt;  
+&lt;filter-mapping&gt;  
+&lt;filter-name&gt;CharacterEncodingFilter&lt;/filter-name&gt;  
+&lt;url-pattern&gt;/*&lt;/url-pattern&gt;  
+&lt;/filter-mapping&gt;  
+&lt;context-param&gt;  
+&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;  
+&lt;param-value&gt;WEB-INF/applicationContext.xml&lt;/param-value&gt;  
+&lt;/context-param&gt;  
+&lt;context-param&gt;  
+&lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;  
+&lt;param-value&gt;classpass:log4j.properties&lt;/param-value&gt;  
+&lt;/context-param&gt;  
+&lt;listener&gt;  
+&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;  
+&lt;/listener&gt;  
+&lt;servlet&gt;  
+&lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;  
+&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;  
+&lt;init-param&gt;  
+&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;  
+&lt;param-value&gt;WEB-INF/springmvcConfig.xml&lt;/param-value&gt;  
+&lt;/init-param&gt;  
+&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;  
+&lt;/servlet&gt;  
+&lt;servlet-mapping&gt;  
+&lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;  
+&lt;url-pattern&gt;/&lt;/url-pattern&gt;  
+&lt;/servlet-mapping&gt;  
+&lt;servlet-mapping&gt;  
+&lt;servlet-name&gt;default&lt;/servlet-name&gt;  
+&lt;url-pattern&gt;*.js&lt;/url-pattern&gt;  
+&lt;/servlet-mapping&gt;  
+&lt;servlet-mapping&gt;  
+&lt;servlet-name&gt;default&lt;/servlet-name&gt;  
+&lt;url-pattern&gt;*.css&lt;/url-pattern&gt;  
+&lt;/servlet-mapping&gt;  
+
+&lt;/web-app&gt;  
+</code></pre><h1 id="index-jsp"><a href="#index-jsp" class="headerlink" title="index.jsp:"></a>index.jsp:</h1><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;  
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;  
+&lt;html&gt;  
+  &lt;head&gt;  
+&lt;title&gt;test&lt;/title&gt;  
+  &lt;/head&gt;  
+  &lt;body&gt;  
+${user.username}  
+  &lt;/body&gt;  
+&lt;/html&gt;  
+</code></pre><p>这样就搭建完成了，启动tomcat，在浏览器中输入<strong>localhost:8080/ssm/user/index?id=1</strong><br>所有lib包：<br><img src="/2017/10/20/SSM简单整合/3.png" alt="lib"></p>
+<h1 id="lib打包下载"><a href="#lib打包下载" class="headerlink" title="lib打包下载"></a><a href="http://download.csdn.net/download/zgsdzczh/9903326" target="_blank" rel="external">lib打包下载</a></h1><h1 id="DEMO下载"><a href="#DEMO下载" class="headerlink" title="DEMO下载"></a><a href="http://download.csdn.net/download/zgsdzczh/9906756" target="_blank" rel="external">DEMO下载</a></h1>
+      
+    </div>
+    
+    
+    
+	
+	<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	
+	</div>
+	
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2017/10/20/SSM简单整合/">SSM简单整合</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 BUG开发者 的个人博客">BUG开发者</a></p>
+  <p><span>发布时间:</span>2017年10月20日 - 14:10</p>
+  <p><span>最后更新:</span>2017年10月20日 - 14:10</p>
+  <p><span>原始链接:</span><a href="/2017/10/20/SSM简单整合/" title="SSM简单整合">http://sdzczh.github.io/2017/10/20/SSM简单整合/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://sdzczh.github.io/2017/10/20/SSM简单整合/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><center>转载请保留原文链接及作者。</center></p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+	clipboard.on('success', $(function(){
+	  $(".fa-clipboard").click(function(){
+		swal({   
+		  title: "",   
+		  text: '复制成功',   
+		  html: false,
+		  timer: 500,   
+		  showConfirmButton: false
+	    });
+	  });
+    }));  
+</script>
+
+      
+	</div>
+	
+    
+
+    
+
+    
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ssm/" rel="tag"><i class="fa fa-tag"></i> ssm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/19/Linux-CentOS7-配置javaWeb环境/" rel="next" title="Linux CentOS7 配置javaWeb环境">
+                <i class="fa fa-chevron-left"></i> Linux CentOS7 配置javaWeb环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.png"
+                alt="BUG开发者" />
+            
+              <p class="site-author-name" itemprop="name">BUG开发者</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/sdzczh" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zgsdzczh@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/u/3782804174" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-globe"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/zgsdzczh" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://alih.cc/" title="代做Java毕业设计" target="_blank">代做Java毕业设计</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#User类："><span class="nav-number">1.</span> <span class="nav-text">User类：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserServiceImpl类："><span class="nav-number">2.</span> <span class="nav-text">UserServiceImpl类：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserMapper-xml："><span class="nav-number">3.</span> <span class="nav-text">UserMapper.xml：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserController："><span class="nav-number">4.</span> <span class="nav-text">UserController：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jdbcConfig-properties："><span class="nav-number">5.</span> <span class="nav-text">jdbcConfig.properties：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#applicationContext-xml："><span class="nav-number">6.</span> <span class="nav-text">applicationContext.xml：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#springmvcConfig-xml"><span class="nav-number">7.</span> <span class="nav-text">springmvcConfig.xml</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-xml"><span class="nav-number">8.</span> <span class="nav-text">web.xml</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index-jsp"><span class="nav-number">9.</span> <span class="nav-text">index.jsp:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lib打包下载"><span class="nav-number">10.</span> <span class="nav-text">lib打包下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DEMO下载"><span class="nav-number">11.</span> <span class="nav-text">DEMO下载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BUG开发者</span>
+
+  
+</div>
+
+
+  <div class="powered-by">个人专属</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">博客   </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+  
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</body>
+<script type="text/javascript">
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+var a = new Array("+1s", "+1s", "+1s", "+1s", "+1s", "+1s", "+1s" ,"+1s", "+1s", "+1s", "+1s", "+1s");
+var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+"top": y - 20,
+"left": x,
+"position": "absolute",
+"font-weight": "bold",
+"color": "#ff6651"
+        });
+        $("body").append($i);
+        $i.animate({
+"top": y - 180,
+"opacity": 0
+        },
+        1500,
+function() {
+            $i.remove();
+        });
+    });
+});
+</script>
+</html>
