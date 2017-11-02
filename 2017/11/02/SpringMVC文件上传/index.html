@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="今天吃鸡了吗">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/02/SpringMVC文件上传/1.png">
-<meta property="og:updated_time" content="2017-11-02T06:53:14.017Z">
+<meta property="og:updated_time" content="2017-11-02T06:55:24.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC文件上传">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/11/02/SpringMVC文件上传/1.png">
@@ -378,8 +378,8 @@
 
       
         <p><img src="/2017/11/02/SpringMVC文件上传/1.png" alt="logo"><br><a id="more"></a><br>html页面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=utf-8"</span></div><div class="line">    pageEncoding=<span class="string">"utf-8"</span>%&gt;</div><div class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=utf-8"</span>&gt;</div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"> </div><div class="line">&lt;form name=<span class="string">"Form"</span> action=<span class="string">"/SpringMVC/fileUpload"</span> method=<span class="string">"post"</span>  enctype=<span class="string">"multipart/form-data"</span>&gt;</div><div class="line">&lt;h1&gt;采用multipart提供的file.transfer方法上传文件&lt;/h1&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"file"</span> name=<span class="string">"file"</span>&gt;</div><div class="line">&lt;input <span class="built_in">type</span>=<span class="string">"submit"</span> value=<span class="string">"upload"</span>/&gt;</div><div class="line">&lt;/form&gt;</div><div class="line"></div><div class="line">&lt;/form&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<p>后台页面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(<span class="string">"fileUpload"</span>)</div><div class="line">public String  fileUpload2(@RequestParam(<span class="string">"file"</span>) CommonsMultipartFile file) throws IOException &#123;</div><div class="line">     </div><div class="line">    System.out.println(<span class="string">"fileName："</span>+file.getOriginalFilename());</div><div class="line">    String path=<span class="string">"E:/"</span>+new Date().getTime()+file.getOriginalFilename();</div><div class="line">     </div><div class="line">    File newFile=new File(path);</div><div class="line">    //通过CommonsMultipartFile的方法直接写文件（注意这个时候）</div><div class="line">    file.transferTo(newFile);</div><div class="line">    <span class="built_in">return</span> <span class="string">"/success"</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
+<p>后台页面：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(<span class="string">"fileUpload"</span>)</div><div class="line">public String  fileUpload2(@RequestParam(<span class="string">"file"</span>) CommonsMultipartFile file) throws IOException &#123;</div><div class="line">    System.out.println(<span class="string">"fileName："</span>+file.getOriginalFilename());</div><div class="line">    String path=<span class="string">"E:/"</span>+new Date().getTime()+file.getOriginalFilename();</div><div class="line">     </div><div class="line">    File newFile=new File(path);</div><div class="line">    //通过CommonsMultipartFile的方法直接写文件（注意这个时候）</div><div class="line">    file.transferTo(newFile);</div><div class="line">    <span class="built_in">return</span> <span class="string">"/success"</span>; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="path为保存在本地的路径"><a href="#path为保存在本地的路径" class="headerlink" title="path为保存在本地的路径"></a>path为保存在本地的路径</h2>
       
     </div>
     
@@ -513,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -620,6 +629,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#path为保存在本地的路径"><span class="nav-number">1.</span> <span class="nav-text">path为保存在本地的路径</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
