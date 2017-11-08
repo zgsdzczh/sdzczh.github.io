@@ -382,7 +382,8 @@
       
         
           
-            <h3 id="服务器的TCP状态（连接状态数量统计）"><a href="#服务器的TCP状态（连接状态数量统计）" class="headerlink" title="服务器的TCP状态（连接状态数量统计）"></a>服务器的TCP状态（连接状态数量统计）</h3><pre><code>netstat -n | awk &apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&apos;
+            <a id="more"></a>
+<h3 id="服务器的TCP状态（连接状态数量统计）"><a href="#服务器的TCP状态（连接状态数量统计）" class="headerlink" title="服务器的TCP状态（连接状态数量统计）"></a>服务器的TCP状态（连接状态数量统计）</h3><pre><code>netstat -n | awk &apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&apos;
 </code></pre><p>查询结果如下：<br><img src="/2017/11/08/Linux优化篇/1.png" alt="logo"><br>常用的三个状态是：</p>
 <ul>
 <li>ESTABLISHED 表示正在通信</li>
