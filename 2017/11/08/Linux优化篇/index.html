@@ -102,7 +102,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/1.png">
-<meta property="og:updated_time" content="2017-11-09T09:18:47.786Z">
+<meta property="og:updated_time" content="2017-11-10T07:58:17.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux优化篇">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
@@ -412,7 +412,8 @@ net.ipv4.tcp_tw_recycle = 1
 net.ipv4.tcp_keepalive_probes=5   
 ##优化网络设备接收队列   
 net.core.netdev_max_backlog=3000
-</code></pre><p>修改完之后执行/sbin/sysctl -p让参数生效。<br>net.ipv4.tcp_tw_reuse和net.ipv4.tcp_tw_recycle的开启都是为了回收处于TIME_WAIT状态的资源。<br>net.ipv4.tcp_fin_timeout这个时间可以减少在异常情况下服务器从FIN-WAIT-2转到TIME_WAIT的时间。<br>net.ipv4.tcp<em>keepalive</em>*一系列参数，是用来设置服务器检测连接存活的相关配置。</p>
+</code></pre><p>修改完之后执行/sbin/sysctl -p让参数生效。</p>
+<p>net.ipv4.tcp_tw_reuse和net.ipv4.tcp_tw_recycle的开启都是为了回收处于TIME_WAIT状态的资源。<br>net.ipv4.tcp_fin_timeout这个时间可以减少在异常情况下服务器从FIN-WAIT-2转到TIME_WAIT的时间。<br>net.ipv4.tcp<em>keepalive</em>*一系列参数，是用来设置服务器检测连接存活的相关配置。</p>
 
       
     </div>
@@ -443,7 +444,7 @@ net.core.netdev_max_backlog=3000
   <p><span>本文标题:</span><a href="/2017/11/08/Linux优化篇/">Linux优化篇</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 BUG开发者 的个人博客">BUG开发者</a></p>
   <p><span>发布时间:</span>2017年11月08日 - 13:11</p>
-  <p><span>最后更新:</span>2017年11月09日 - 17:11</p>
+  <p><span>最后更新:</span>2017年11月10日 - 15:11</p>
   
   <p><center>转载请保留原文链接及作者。</center></p>  
 </div>
