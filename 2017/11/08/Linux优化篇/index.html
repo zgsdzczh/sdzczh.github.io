@@ -102,7 +102,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/1.png">
-<meta property="og:updated_time" content="2017-11-13T10:08:44.379Z">
+<meta property="og:updated_time" content="2017-11-13T10:15:00.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux优化篇">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
@@ -393,7 +393,7 @@
 <p>因为linux分配给一个用户的文件句柄是有限的，而TIME_WAIT和CLOSE_WAIT两种状态如果一直被保持，那么意味着对应数目的通道就一直被占着，而且是“占着茅坑不使劲”，一旦达到句柄数上限，新的请求就无法被处理了，接着就是大量Too Many Open Files异常，tomcat崩溃。</p>
 <p>首先要对<code>/etc/sysctl.conf</code>文件的修改：</p>
 <pre><code>#对于一个新建连接，内核要发送多少个 SYN 连接请求才决定放弃,不应该大于255，默认值是5，对应于180秒左右时间   
-net.ipv4.tcp_syn_retries=2  
+net.ipv4.tcp_syn_retries=2    
 #net.ipv4.tcp_synack_retries=2  
 #表示当keepalive起用的时候，TCP发送keepalive消息的频度。缺省是2小时，改为300秒  
 net.ipv4.tcp_keepalive_time=1200  
