@@ -102,7 +102,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/1.png">
-<meta property="og:updated_time" content="2017-11-13T10:15:00.012Z">
+<meta property="og:updated_time" content="2017-11-15T03:32:36.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux优化篇">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
@@ -414,6 +414,11 @@ net.ipv4.tcp_keepalive_probes=5
 net.core.netdev_max_backlog=3000
 </code></pre><p>修改完之后执行/sbin/sysctl -p让参数生效。</p>
 <p>net.ipv4.tcp_tw_reuse和net.ipv4.tcp_tw_recycle的开启都是为了回收处于TIME_WAIT状态的资源。<br>net.ipv4.tcp_fin_timeout这个时间可以减少在异常情况下服务器从FIN-WAIT-2转到TIME_WAIT的时间。<br>net.ipv4.tcp<em>keepalive</em>*一系列参数，是用来设置服务器检测连接存活的相关配置。</p>
+<h3 id="进程优化"><a href="#进程优化" class="headerlink" title="进程优化"></a>进程优化</h3><p>1.使用top查看占用CPU最高的进程ID</p>
+<p>2.使用进程号找出占用CPU最高的线程ID<br>ps -mp 32766 -o THREAD,tid,time | sort -rn</p>
+<p>3.将线程ID转换成16进制数<br>printf “%x\n” 303</p>
+<p>4.使用进程ID和线程ID定位到代码 </p>
+<p>jstack 32766 |grep 12f -A 50</p>
 
       
     </div>
@@ -444,7 +449,7 @@ net.core.netdev_max_backlog=3000
   <p><span>本文标题:</span><a href="/2017/11/08/Linux优化篇/">Linux优化篇</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 BUG开发者 的个人博客">BUG开发者</a></p>
   <p><span>发布时间:</span>2017年11月08日 - 13:11</p>
-  <p><span>最后更新:</span>2017年11月13日 - 18:11</p>
+  <p><span>最后更新:</span>2017年11月15日 - 11:11</p>
   
   <p><center>转载请保留原文链接及作者。</center></p>  
 </div>
@@ -674,7 +679,7 @@ net.core.netdev_max_backlog=3000
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器的TCP状态（连接状态数量统计）"><span class="nav-number">1.</span> <span class="nav-text">服务器的TCP状态（连接状态数量统计）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器的TCP状态（连接状态数量统计）"><span class="nav-number">1.</span> <span class="nav-text">服务器的TCP状态（连接状态数量统计）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程优化"><span class="nav-number">2.</span> <span class="nav-text">进程优化</span></a></li></ol></div>
             
 
           </div>
