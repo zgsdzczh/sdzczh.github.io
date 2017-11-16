@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="今天吃鸡了吗">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/10/24/Tomcat的一些优化/t.png">
-<meta property="og:updated_time" content="2017-11-07T04:06:17.876Z">
+<meta property="og:updated_time" content="2017-11-16T09:41:50.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat的一些优化">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/10/24/Tomcat的一些优化/t.png">
@@ -378,7 +378,7 @@
 
       
         <p><img src="/2017/10/24/Tomcat的一些优化/t.png" alt="logo"><br><a id="more"></a></p>
-<h1 id="解决Tomcat启动慢的问题"><a href="#解决Tomcat启动慢的问题" class="headerlink" title="解决Tomcat启动慢的问题"></a>解决Tomcat启动慢的问题</h1><p>打开$JAVA_PATH/jre/lib/security/java.security这个文件，找到下面的内容：</p>
+<h1 id="解决Tomcat启动慢的问题"><a href="#解决Tomcat启动慢的问题" class="headerlink" title="解决Tomcat启动慢的问题"></a>解决Tomcat启动慢的问题</h1><p>打开$JAVA_PATH/jre/lib/security/java.security这个文件，找到下面的内容：  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">securerandom.source=file:/dev/urandom</div></pre></td></tr></table></figure>
 <p>替换成</p>
 <figure class="highlight bash"><figcaption><span>securerandom.source</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure>
@@ -414,7 +414,7 @@
   <p><span>本文标题:</span><a href="/2017/10/24/Tomcat的一些优化/">Tomcat的一些优化</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 BUG开发者 的个人博客">BUG开发者</a></p>
   <p><span>发布时间:</span>2017年10月24日 - 14:10</p>
-  <p><span>最后更新:</span>2017年11月07日 - 12:11</p>
+  <p><span>最后更新:</span>2017年11月16日 - 17:11</p>
   
   <p><center>转载请保留原文链接及作者。</center></p>  
 </div>
