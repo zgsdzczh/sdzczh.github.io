@@ -381,26 +381,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="创建tomcat证书"><a href="#创建tomcat证书" class="headerlink" title="创建tomcat证书"></a>创建tomcat证书</h1><p>使用cmd进入到jdk/bin文件夹下，输入如下命令：</p>
-<pre><code>keytool -genkeypair -alias &quot;tomcat&quot; -keyalg &quot;RSA&quot; -keystore &quot;d:\tomcat.keystore&quot;
-</code></pre><p><img src="/2017/11/17/配置Tomcat使用HTTPS协议/1.png" alt="logo"><br>以上命令将生产一对非对称密钥和自我签名的证书d:\tomcat.keystore<br>注意：“名字与姓氏”应该是域名，输成了姓名，和真正运行的时候域名不符，会出问题<br>这里我输入的密码是123456,  域名是以tomcat为例,  省市以济宁为例</p>
-<h1 id="配置tomcat服务器"><a href="#配置tomcat服务器" class="headerlink" title="配置tomcat服务器"></a>配置tomcat服务器</h1><p>定位到tomcat服务器的安装目录, 找到conf下的server.xml文件<br><img src="/2017/11/17/配置Tomcat使用HTTPS协议/2.png" alt="logo"><br>找到如下已经被注释的代码：</p>
-<pre><code> &lt;!--
- &lt;Connector port=&quot;8443&quot; protocol=&quot;HTTP/1.1&quot; SSLEnabled=&quot;true&quot;
-maxThreads=&quot;150&quot; scheme=&quot;https&quot; secure=&quot;true&quot;
-clientAuth=&quot;false&quot; sslProtocol=&quot;TLS&quot; /&gt;
- --&gt;
-</code></pre><p>去掉注释，在最后加上：</p>
-<pre><code>keystoreFile=&quot;d:\tomcat.keystore&quot;  keystorePass=&quot;123456&quot;
-</code></pre><p>使之成为：</p>
-<pre><code> &lt;Connector port=&quot;8443&quot; protocol=&quot;HTTP/1.1&quot; SSLEnabled=&quot;true&quot;  
-maxThreads=&quot;150&quot; scheme=&quot;https&quot; secure=&quot;true&quot;   clientAuth=&quot;false&quot; sslProtocol=&quot;TLS&quot;   keystoreFile=&quot;d:\tomcat.keystore&quot;keystorePass=&quot;123456&quot; /&gt; 
-</code></pre><p>此时端口号为8443.</p>
-<h1 id="启动tomcat服务器"><a href="#启动tomcat服务器" class="headerlink" title="启动tomcat服务器"></a>启动tomcat服务器</h1><p>在浏览器中输入: <a href="https://localhost:8443" target="_blank" rel="external">https://localhost:8443</a> 即可。</p>
-
-          
+          <p><img src="/2017/11/17/配置Tomcat使用HTTPS协议/3.png" alt="logo"><br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/17/配置Tomcat使用HTTPS协议/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
