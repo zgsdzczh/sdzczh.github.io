@@ -102,7 +102,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/1.png">
-<meta property="og:updated_time" content="2017-11-20T06:43:33.013Z">
+<meta property="og:updated_time" content="2017-11-20T06:45:59.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux优化篇">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
@@ -418,7 +418,7 @@ net.core.netdev_max_backlog=3000
 <p>2.使用进程号找出占用CPU最高的线程ID<br>ps -mp 32766 -o THREAD,tid,time | sort -rn</p>
 <p>3.将线程ID转换成16进制数<br>printf “%x\n” 303</p>
 <p>4.使用进程ID和线程ID定位到代码 </p>
-<p>jstack 32766 |grep 12f -A 50</p>
+<p>jstack 32766 |grep 12f -A 50  </p>
 
       
     </div>
