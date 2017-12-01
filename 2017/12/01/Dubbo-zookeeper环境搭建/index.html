@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://sdzczh.github.io/2017/12/01/Dubbo-zookeeper环境搭建/2.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/12/01/Dubbo-zookeeper环境搭建/3.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/12/01/Dubbo-zookeeper环境搭建/4.png">
-<meta property="og:updated_time" content="2017-12-01T08:16:21.300Z">
+<meta property="og:updated_time" content="2017-12-01T08:16:47.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo+zookeeper环境搭建">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/12/01/Dubbo-zookeeper环境搭建/5.png">
@@ -389,8 +389,9 @@
 <ol>
 <li>安装Zookeeper,启动； </li>
 <li>创建MAVEN项目，构建Dubbo+Zookeeper+Spring实现的简单Demo； </li>
-<li>安装Dubbo-admin，实现监控。<h1 id="安装配置Zookeeper"><a href="#安装配置Zookeeper" class="headerlink" title="安装配置Zookeeper"></a>安装配置Zookeeper</h1>解压zookeeper-3.3.6.tar.gz到指定目录下    D:\zookeeper-3.4.8<br>修改zoo_sample.cfg 文件名(D:\zookeeper-3.4.8\conf) 为 zoo.cfg</li>
+<li>安装Dubbo-admin，实现监控。</li>
 </ol>
+<h1 id="安装配置Zookeeper"><a href="#安装配置Zookeeper" class="headerlink" title="安装配置Zookeeper"></a>安装配置Zookeeper</h1><p>解压zookeeper-3.3.6.tar.gz到指定目录下    D:\zookeeper-3.4.8<br>修改zoo_sample.cfg 文件名(D:\zookeeper-3.4.8\conf) 为 zoo.cfg</p>
 <p>配置文件简单解析<br>1、tickTime：这个时间是作为 Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。<br>2、dataDir：是 Zookeeper 保存数据的目录，默认情况下，Zookeeper 将写数据的日志文件也保存在这个目录里。<br>3、dataLogDir：是 Zookeeper 保存日志文件的目录<br>4、clientPort：这个端口就是客户端连接 Zookeeper 服务器的端口，Zookeeper 会监听这个端口，接受客户端的访问请求。<br>在(D:\zookeeper-3.4.8)目录下创建/tmp/zookeeper文件夹</p>
 <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>进入到bin文件夹下，在上面地址栏中输入cmd进入命令行，输入zkServer.cmd，若如图显示则代表启动成功。<br><img src="/2017/12/01/Dubbo-zookeeper环境搭建/1.png" alt="logo"></p>
 <h1 id="创建MAVEN项目"><a href="#创建MAVEN项目" class="headerlink" title="创建MAVEN项目"></a>创建MAVEN项目</h1><p>（编译环境使用Intellij JDK版本为1.8）<br>项目结构：<br>dubbo-api : 存放公共接口；<br>dubbo-consumer :　调用远程服务；<br>dubbo-provider : 提供远程服务。<br>具体如图所示：<br><img src="/2017/12/01/Dubbo-zookeeper环境搭建/2.png" alt="logo"></p>
