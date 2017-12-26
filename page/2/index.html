@@ -965,7 +965,16 @@
       
         
           
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">$(<span class="string">"#Form"</span>).submit(); </div><div class="line">&#125;,1000)</div><div class="line">location.reload(); 刷新页面  </div><div class="line">window.location.href=<span class="string">'sys/loginForward'</span>; 跳转页面 </div><div class="line"><span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">“这里写要延迟执行的语句”</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <pre><code class="bash">setTimeout(<span class="function"><span class="title">function</span></span>(){
+$(<span class="string">"#Form"</span>).submit(); 
+},1000)
+location.reload(); 刷新页面  
+window.location.href=<span class="string">'sys/loginForward'</span>; 跳转页面 
+<span class="function"><span class="title">function</span></span>(){
+“这里写要延迟执行的语句”
+}
+</code></pre>
+
           
         
       
