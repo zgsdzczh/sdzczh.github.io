@@ -102,7 +102,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/1.png">
-<meta property="og:updated_time" content="2018-01-03T08:38:14.240Z">
+<meta property="og:updated_time" content="2018-01-03T08:38:48.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux优化篇">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
@@ -380,7 +380,7 @@
       
         <p><img src="/2017/11/08/Linux优化篇/2.png" alt="logo"><br><a id="more"></a></p>
 <h3 id="服务器的TCP状态（连接状态数量统计）"><a href="#服务器的TCP状态（连接状态数量统计）" class="headerlink" title="服务器的TCP状态（连接状态数量统计）"></a>服务器的TCP状态（连接状态数量统计）</h3><pre><code>netstat -n | awk &apos;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&apos;
-</code></pre><p>查询结果如下：<br><img src="/2017/11/08/Linux优化篇/1.png" alt="logo"><br>常用的三个状态是： </p>
+</code></pre><p>查询结果如下：<br><img src="/2017/11/08/Linux优化篇/1.png" alt="logo"><br>常用的三个状态是：   </p>
 <ul>
 <li>ESTABLISHED 表示正在通信</li>
 <li>TIME_WAIT 表示主动关闭</li>
