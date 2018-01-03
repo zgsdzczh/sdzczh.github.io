@@ -102,7 +102,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/1.png">
-<meta property="og:updated_time" content="2018-01-03T08:38:48.560Z">
+<meta property="og:updated_time" content="2018-01-03T09:03:29.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux优化篇">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
@@ -394,7 +394,7 @@
 <p>首先要对<code>/etc/sysctl.conf</code>文件的修改：</p>
 <pre><code>#对于一个新建连接，内核要发送多少个 SYN 连接请求才决定放弃,不应该大于255，默认值是5，对应于180秒左右时间   
 net.ipv4.tcp_syn_retries=2      
-#net.ipv4.tcp_synack_retries=2  
+#net.ipv4.tcp_synack_retries=2    
 #表示当keepalive起用的时候，TCP发送keepalive消息的频度。缺省是2小时，改为300秒  
 net.ipv4.tcp_keepalive_time=1200  
 net.ipv4.tcp_orphan_retries=3  
@@ -449,7 +449,7 @@ net.core.netdev_max_backlog=3000
   <p><span>本文标题:</span><a href="/2017/11/08/Linux优化篇/">Linux优化篇</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 BUG开发者 的个人博客">BUG开发者</a></p>
   <p><span>发布时间:</span>2017年11月08日 - 13:11</p>
-  <p><span>最后更新:</span>2018年01月03日 - 16:01</p>
+  <p><span>最后更新:</span>2018年01月03日 - 17:01</p>
   
   <p><center>转载请保留原文链接及作者。</center></p>  
 </div>
