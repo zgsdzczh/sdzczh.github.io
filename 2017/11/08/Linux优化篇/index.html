@@ -102,7 +102,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
 <meta property="og:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/1.png">
-<meta property="og:updated_time" content="2018-01-16T10:10:57.691Z">
+<meta property="og:updated_time" content="2018-01-26T09:36:17.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux优化篇">
 <meta name="twitter:image" content="http://sdzczh.github.io/2017/11/08/Linux优化篇/2.png">
@@ -388,7 +388,7 @@
 </ul>
 <p>如果服务器出了异常，百分之八九十都是下面两种情况：   </p>
 <blockquote>
-<p>服务器保持了大量TIME_WAIT状态<br>服务器保持了大量CLOSE_WAIT状态 </p>
+<p>服务器保持了大量TIME_WAIT状态<br>服务器保持了大量CLOSE_WAIT状态   </p>
 </blockquote>
 <p>因为linux分配给一个用户的文件句柄是有限的，而TIME_WAIT和CLOSE_WAIT两种状态如果一直被保持，那么意味着对应数目的通道就一直被占着，而且是“占着茅坑不使劲”，一旦达到句柄数上限，新的请求就无法被处理了，接着就是大量Too Many Open Files异常，tomcat崩溃。</p>
 <p>首先要对<code>/etc/sysctl.conf</code>文件的修改：</p>
@@ -449,7 +449,7 @@ net.core.netdev_max_backlog=3000
   <p><span>本文标题:</span><a href="/2017/11/08/Linux优化篇/">Linux优化篇</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 BUG开发者 的个人博客">BUG开发者</a></p>
   <p><span>发布时间:</span>2017年11月08日 - 13:11</p>
-  <p><span>最后更新:</span>2018年01月16日 - 18:01</p>
+  <p><span>最后更新:</span>2018年01月26日 - 17:01</p>
   
   <p><center>转载请保留原文链接及作者。</center></p>  
 </div>
