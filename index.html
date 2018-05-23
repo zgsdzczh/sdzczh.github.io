@@ -249,6 +249,157 @@
       
 
       
+	  <li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+ 
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+ 
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+ 
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+ 
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+ 
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+ 
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+ 
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+ 
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+ 
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+ 
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+ 
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+ 
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+ 
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+
     </ul>
   
 
@@ -376,8 +527,8 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                   字
-                </span>
+				  字
+				</span>
               
 
               
@@ -392,8 +543,8 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                   分钟
-                </span>
+				    分钟
+				 </span>
               
             </div>
           
@@ -414,15 +565,14 @@
 
       
         
-          
-            <p><img src="/2018/05/23/使用JSON-RPC操作BTC钱包-0/1.png" alt="logo"><br>1、首先在本地安装BTC（LTC）钱包，<a href="https://www.btctrade.com/wallet.help.html" target="_blank" rel="external">安装包下载地址</a>。<br>2、在数据文件夹中新建bitcoin.conf（litecoin.conf），默认数据文件夹位置在 <strong>C:\Users\Administrator.PC-20170606QNRN\AppData\Roaming\BitCoin</strong><br>3、打开新建的配置文件，输入以下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">rpcuser=userrpc  </div><div class="line">rpcpassword=userpassword  </div><div class="line">rpcallowip=127.0.0.1  </div><div class="line">rpcport=61315  </div><div class="line">server=1</div></pre></td></tr></table></figure></p>
-<p>4、打开钱包应用程序，通过cmd命令：netstat -ano|findstr “61315”<br><img src="/2018/05/23/使用JSON-RPC操作BTC钱包-0/2.png" alt="logo"><br>5、新建JAVA工程，创建两个类：CoinUtils.java，Constants.java<br>   添加MAVEN依赖<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;    </div><div class="line">    &lt;groupId&gt;com.github.briandilley.jsonrpc4j&lt;/groupId&gt;    </div><div class="line">    &lt;artifactId&gt;jsonrpc4j&lt;/artifactId&gt;    </div><div class="line">    &lt;version&gt;1.1&lt;/version&gt;    </div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure></p>
-<p>6、代码如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">package com.ant.wallet;  </div><div class="line">  </div><div class="line">public class Constants &#123;  </div><div class="line">    public static String RPC_USER = <span class="string">"userrpc"</span>;  </div><div class="line">    public static String RPC_PASSWORD = <span class="string">"userpassword"</span>;  </div><div class="line">    public static String RPC_ALLOWIP = <span class="string">"127.0.0.1"</span>;  </div><div class="line">    public static String RPC_PORT = <span class="string">"61315"</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line">package com.ant.wallet;  </div><div class="line">  </div><div class="line">import java.net.URL;  </div><div class="line">import java.util.HashMap;  </div><div class="line">import java.util.Map;  </div><div class="line">  </div><div class="line">  </div><div class="line">import com.googlecode.jsonrpc4j.Base64;  </div><div class="line">import com.googlecode.jsonrpc4j.JsonRpcHttpClient;  </div><div class="line">  </div><div class="line">public class CoinUtils &#123;  </div><div class="line">  </div><div class="line">      </div><div class="line">    private static CoinUtils instance;  </div><div class="line">    private static void init() throws Throwable &#123;  </div><div class="line">        <span class="keyword">if</span>(null == instance)&#123;  </div><div class="line">            instance = new CoinUtils();  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    private JsonRpcHttpClient client;  </div><div class="line">    public CoinUtils() throws Throwable&#123;  </div><div class="line">        // 身份认证  </div><div class="line">        String cred = Base64.encodeBytes((Constants.RPC_USER + <span class="string">":"</span> + Constants.RPC_PASSWORD).getBytes());  </div><div class="line">        Map&lt;String, String&gt; headers = new HashMap&lt;String, String&gt;(1);  </div><div class="line">        headers.put(<span class="string">"Authorization"</span>, <span class="string">"Basic "</span> + cred);  </div><div class="line">        client = new JsonRpcHttpClient(new URL(<span class="string">"http://"</span>+Constants.RPC_ALLOWIP+<span class="string">":"</span>+Constants.RPC_PORT), headers);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">  </div><div class="line">    public static CoinUtils getInstance() throws Throwable &#123;  </div><div class="line">        init();  </div><div class="line">        <span class="built_in">return</span> instance;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">      </div><div class="line">    /** </div><div class="line">     * 验证地址是否存在 </div><div class="line">     * @param address </div><div class="line">     * @<span class="built_in">return</span> </div><div class="line">     * @throws Throwable </div><div class="line">     */  </div><div class="line">    public String validateaddress(String address)throws Throwable&#123;  </div><div class="line">        <span class="built_in">return</span>  (String) client.invoke(<span class="string">"validateaddress"</span>, new Object[] &#123;address&#125;, Object.class).toString();  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 如果钱包加密需要临时解锁钱包 </div><div class="line">     * @param password </div><div class="line">     * @param time </div><div class="line">     * @<span class="built_in">return</span> </div><div class="line">     * @throws Throwable </div><div class="line">     */  </div><div class="line">    public String walletpassphase(String password,int time)throws Throwable&#123;  </div><div class="line">        <span class="built_in">return</span>  (String) client.invoke(<span class="string">"walletpassphase"</span>, new Object[] &#123;password,time&#125;, Object.class).toString();  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    /** </div><div class="line">     * 转账到制定的账户中 </div><div class="line">     * @param address </div><div class="line">     * @param amount </div><div class="line">     * @<span class="built_in">return</span> </div><div class="line">     * @throws Throwable </div><div class="line">     */  </div><div class="line">    public String sendtoaddress(String address,double amount)throws Throwable&#123;  </div><div class="line">        <span class="built_in">return</span>  (String) client.invoke(<span class="string">"sendtoaddress"</span>, new Object[] &#123;address,amount&#125;, Object.class).toString();  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    /** </div><div class="line">     * 查询账户下的交易记录 </div><div class="line">     * @param account </div><div class="line">     * @param count </div><div class="line">     * @param offset </div><div class="line">     * @<span class="built_in">return</span> </div><div class="line">     * @throws Throwable </div><div class="line">     */  </div><div class="line">    public String listtransactions(String account, int count ,int offset )throws Throwable&#123;  </div><div class="line">        <span class="built_in">return</span>  (String) client.invoke(<span class="string">"listtransactions"</span>, new Object[] &#123;account,count,offset&#125;, Object.class).toString();  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    /** </div><div class="line">     * 获取地址下未花费的币量 </div><div class="line">     * @param account </div><div class="line">     * @param count </div><div class="line">     * @param offset </div><div class="line">     * @<span class="built_in">return</span> </div><div class="line">     * @throws Throwable </div><div class="line">     */  </div><div class="line">    public String listunspent( int minconf ,int maxconf ,String address)throws Throwable&#123;  </div><div class="line">        String[] addresss= new String[]&#123;address&#125;;  </div><div class="line">        <span class="built_in">return</span>  (String) client.invoke(<span class="string">"listunspent"</span>, new Object[] &#123;minconf,maxconf,addresss&#125;, Object.class).toString();  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    /** </div><div class="line">     * 生成新的接收地址 </div><div class="line">     * @<span class="built_in">return</span> </div><div class="line">     * @throws Throwable </div><div class="line">     */  </div><div class="line">    public String getNewaddress() throws Throwable&#123;  </div><div class="line">        <span class="built_in">return</span>  (String) client.invoke(<span class="string">"getnewaddress"</span>, new Object[] &#123;&#125;, Object.class).toString();  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    /** </div><div class="line">     * 获取钱包信息 </div><div class="line">     * @<span class="built_in">return</span> </div><div class="line">     * @throws Throwable </div><div class="line">     */  </div><div class="line">    public String getInfo() throws Throwable&#123;  </div><div class="line">        <span class="built_in">return</span>  client.invoke(<span class="string">"getinfo"</span>, new Object[] &#123;&#125;, Object.class).toString();  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样就实现了使用java代码与钱包进行通信。</p>
-<p>以上列举了几个常用的方法，其他方法详见：<a href="https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list" target="_blank" rel="external">这里</a></p>
-
-          
+          <p><img src="/2018/05/23/使用JSON-RPC操作BTC钱包-0/1.png" alt="logo"><br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/23/使用JSON-RPC操作BTC钱包-0/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -573,8 +723,8 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                   字
-                </span>
+				  字
+				</span>
               
 
               
@@ -589,8 +739,8 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                   分钟
-                </span>
+				    分钟
+				 </span>
               
             </div>
           
@@ -769,8 +919,8 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                   字
-                </span>
+				  字
+				</span>
               
 
               
@@ -785,8 +935,8 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                   分钟
-                </span>
+				    分钟
+				 </span>
               
             </div>
           
@@ -943,8 +1093,8 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                   字
-                </span>
+				  字
+				</span>
               
 
               
@@ -959,8 +1109,8 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                   分钟
-                </span>
+				    分钟
+				 </span>
               
             </div>
           
@@ -1139,8 +1289,8 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                   字
-                </span>
+				  字
+				</span>
               
 
               
@@ -1155,8 +1305,8 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                   分钟
-                </span>
+				    分钟
+				 </span>
               
             </div>
           
@@ -1336,8 +1486,8 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                   字
-                </span>
+				  字
+				</span>
               
 
               
@@ -1352,8 +1502,8 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                   分钟
-                </span>
+				    分钟
+				 </span>
               
             </div>
           
@@ -1532,8 +1682,8 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                   字
-                </span>
+				  字
+				</span>
               
 
               
@@ -1548,8 +1698,8 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                   分钟
-                </span>
+				    分钟
+				 </span>
               
             </div>
           
@@ -1728,8 +1878,8 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                   字
-                </span>
+				  字
+				</span>
               
 
               
@@ -1744,8 +1894,8 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                   分钟
-                </span>
+				    分钟
+				 </span>
               
             </div>
           
@@ -1984,6 +2134,15 @@
   <span class="author" itemprop="copyrightHolder">BUG开发者</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
 </div>
 
 
@@ -1999,6 +2158,7 @@
 
 
 
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=415793716&auto=1&height=66"></iframe>
 
         
 
